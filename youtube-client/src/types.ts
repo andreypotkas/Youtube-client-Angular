@@ -1,19 +1,28 @@
-export interface IResponse{
-    etag:string
-    items:IItem[]
-    kind: string
-    pageInfo:{
-        resultsPerPage: number
-        totalResults: number
-    }
+interface ILocalized{
+    description: string
+    title: string
 }
-interface IItem{
-    etag:string
-    id:string
-    kind:string
-    snippet: ISnippet
-    statistics: IStatistics
+interface IThumbnailsProperty{
+    url:string
+    width: number
+    height: number
 }
+interface IThumbnails{
+    default: IThumbnailsProperty
+    high: IThumbnailsProperty
+    maxres: IThumbnailsProperty
+    medium: IThumbnailsProperty
+    standard: IThumbnailsProperty
+}
+
+interface IStatistics{
+    commentCount: string
+    dislikeCount: string
+    favoriteCount: string
+    likeCount: string
+    viewCount: string
+}
+
 interface ISnippet{
     categoryId: string
     channelId: string
@@ -28,30 +37,19 @@ interface ISnippet{
     thumbnails: IThumbnails
     title: string
 }
-
-interface ILocalized{
-    description: string
-    title: string
+interface IItem{
+    etag:string
+    id:string
+    kind:string
+    snippet: ISnippet
+    statistics: IStatistics
 }
-
-interface IThumbnails{
-    default: IThumbnailsProperty
-    high: IThumbnailsProperty
-    maxres: IThumbnailsProperty
-    medium: IThumbnailsProperty
-    standard: IThumbnailsProperty
-}
-
-interface IThumbnailsProperty{
-    url:string
-    width: number
-    height: number
-}
-
-interface IStatistics{
-    commentCount: string  
-    dislikeCount: string 
-    favoriteCount: string 
-    likeCount: string 
-    viewCount: string
+export interface IResponse{
+    etag:string
+    items:IItem[]
+    kind: string
+    pageInfo:{
+        resultsPerPage: number
+        totalResults: number
+    }
 }

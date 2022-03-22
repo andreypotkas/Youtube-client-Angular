@@ -8,9 +8,9 @@ describe('VideoStatBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VideoStatBarComponent ]
+      declarations: [VideoStatBarComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

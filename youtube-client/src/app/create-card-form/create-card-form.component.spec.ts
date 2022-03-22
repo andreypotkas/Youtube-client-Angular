@@ -8,9 +8,9 @@ describe('CreateCardFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateCardFormComponent ]
+      declarations: [CreateCardFormComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
