@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +13,7 @@ import { LoginComponent } from './authorization/login/login.component';
 import { RegistrationComponent } from './authorization/registration/registration.component';
 import { CardPageComponent } from './card-page/card-page.component';
 import { CreateCardFormComponent } from './create-card-form/create-card-form.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CreateCardFormComponent } from './create-card-form/create-card-form.com
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

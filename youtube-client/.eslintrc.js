@@ -22,5 +22,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-undef': 'off',
     'import/no-unresolved': 'off',
+    'no-unused-vars': 'off',
+    'import/extensions': 'off',
   },
 };
