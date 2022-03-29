@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sort-bar.component.scss'],
 })
 export class SortBarComponent {
-
+  sortValue:string = '';
 }
