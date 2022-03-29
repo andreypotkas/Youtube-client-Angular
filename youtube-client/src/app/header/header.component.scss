@@ -1,0 +1,23 @@
+$bg-header-color: #E5E5E5;
+$btn-color: #2F80ED;
+$search-field-bg: #EFEFEF;
+header{
+    width: 100%;
+    height: 80px;
+    background: $bg-header-color;
+    .play-btn{
+        background: $btn-color;
+        min-width: 50px;
+        padding: 0;
+    }
+    mat-form-field{
+        
+        input{
+            background: $search-field-bg;
+        }
+        
+        width: 396px;
+        height: 24px;
+        
+    }
+}
