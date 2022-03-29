@@ -1,4 +1,4 @@
-import { IResponse } from './types';
+import { IResponse } from './app/models/models';
 
 const response: IResponse = {
   kind: 'youtube#videoListResponse',

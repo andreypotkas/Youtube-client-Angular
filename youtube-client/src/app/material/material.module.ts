@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 
-const MaterialComponents = [
+export const MaterialComponents = [
   MatButtonModule,
   MatButtonToggleModule,
   MatIconModule,
