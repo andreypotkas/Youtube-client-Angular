@@ -14,6 +14,7 @@ import { RegistrationComponent } from './authorization/registration/registration
 import { CardPageComponent } from './card-page/card-page.component';
 import { CreateCardFormComponent } from './create-card-form/create-card-form.component';
 import { MaterialModule } from './material/material.module';
+import { StatBarComponent } from './search-result-conatiner/stat-bar/stat-bar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MaterialModule } from './material/material.module';
     RegistrationComponent,
     CardPageComponent,
     CreateCardFormComponent,
+    StatBarComponent,
   ],
   imports: [
     BrowserModule,
