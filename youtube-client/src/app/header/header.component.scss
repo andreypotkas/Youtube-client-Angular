@@ -12,6 +12,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     .play-btn{
         min-width: 50px;
@@ -41,7 +42,6 @@ header{
 
     .user-bar{
         position: absolute;
-        margin-left: 75%;
+        right: 160px; 
     }
-        
 }

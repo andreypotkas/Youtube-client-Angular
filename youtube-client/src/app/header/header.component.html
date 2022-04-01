@@ -4,9 +4,9 @@
 
     <input class="search-field" type="search" [(ngModel)]="searchValue" placeholder="What do you want to find out?">
         
-    <button class="search-btn" mat-raised-button>search</button>
+    <button class="search-btn" mat-raised-button (click)="onChanged()">search</button>
 
-    <button class="settings-btn" mat-raised-button><mat-icon>tune</mat-icon></button>
+    <button class="settings-btn" mat-raised-button (click)="toggleVisibilitySortBar()"><mat-icon>tune</mat-icon></button>
 
     <div class="user-bar">
         <span>Your Name</span>
@@ -14,4 +14,4 @@
     </div>
     
 </header>
-<app-sort-bar></app-sort-bar>
+<app-sort-bar *ngIf="visibilitySortBar"></app-sort-bar>

@@ -15,6 +15,8 @@ import { CardPageComponent } from './card-page/card-page.component';
 import { CreateCardFormComponent } from './create-card-form/create-card-form.component';
 import { MaterialModule } from './material/material.module';
 import { StatBarComponent } from './search-result-conatiner/stat-bar/stat-bar.component';
+import { AgeStatusDirective } from './directives/age-status.directive';
+import { SortDatePipe } from './pipes/sort-date.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { StatBarComponent } from './search-result-conatiner/stat-bar/stat-bar.co
     CardPageComponent,
     CreateCardFormComponent,
     StatBarComponent,
+    AgeStatusDirective,
+    SortDatePipe,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import response from 'src/response';
+import response from '../response';
 
 @Component({
   selector: 'app-stat-bar',

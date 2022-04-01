@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import response from 'src/response';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +6,11 @@ import response from 'src/response';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'youtube-client';
+  public title = 'youtube-client';
 
-  awd = response;
+  public isSearch = false;
 
-  constructor() {
-    console.log(this.awd);
+  runSearch() {
+    this.isSearch = true;
   }
 }

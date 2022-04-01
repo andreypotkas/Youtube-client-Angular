@@ -1,4 +1,2 @@
-<div class="main-container">
-    <app-header></app-header>
-    <app-search-result-conatiner></app-search-result-conatiner>
-</div>
+<app-header (searchStart)="runSearch()"></app-header>
+<app-search-result-conatiner *ngIf="isSearch"></app-search-result-conatiner>

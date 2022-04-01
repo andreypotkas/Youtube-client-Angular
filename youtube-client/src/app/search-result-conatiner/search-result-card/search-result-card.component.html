@@ -1,11 +1,15 @@
 <div class="search-result-card">
-    <img class="video-prewiew" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="video-prewiew">
+    <img class="video-prewiew" [src]="srcImg" alt="video-prewiew">
 
     <app-stat-bar [index]="index"></app-stat-bar>
 
-    <h2>#Shiba Podcast</h2>
-    {{index}}
+    <h2 *ngIf="titleLength < 40; else shortTitle">{{title}}</h2>
+
+    <ng-template #shortTitle>
+      <h2>{{title | slice: 0:30}} ...</h2>
+    </ng-template>
+    
     <button mat-button class="more-btn" >More...</button>
     
-    <div class="card-bottom-line"></div>
+    <div appAgeStatus [date]="age" class="card-bottom-line"></div>
   </div>

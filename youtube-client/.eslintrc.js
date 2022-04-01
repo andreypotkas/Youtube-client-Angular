@@ -22,4 +22,4 @@ module.exports = {
     'no-undef': 'off',
     'import/extensions': 'off',
   },
-};
+}
