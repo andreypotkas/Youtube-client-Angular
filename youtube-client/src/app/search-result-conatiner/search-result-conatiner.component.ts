@@ -12,7 +12,7 @@ import response from './response';
 export class SearchResultConatinerComponent {
   public items: IItem[] = response.items;
 
-  constructor(public sortSrvice: SortService) {
-    this.sortSrvice.arr = this.items;
+  constructor(public sortService: SortService) {
+    this.sortService.arr = this.items;
   }
 }

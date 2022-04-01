@@ -16,7 +16,9 @@ import { CreateCardFormComponent } from './create-card-form/create-card-form.com
 import { MaterialModule } from './material/material.module';
 import { StatBarComponent } from './search-result-conatiner/stat-bar/stat-bar.component';
 import { AgeStatusDirective } from './directives/age-status.directive';
-import { SortDatePipe } from './pipes/sort-date.pipe';
+import { SortByWordsPipe } from './pipes/sort-by-words.pipe';
+import { SortByDatePipe } from './pipes/sort-by-date.pipe';
+import { SortByViewsPipe } from './pipes/sort-by-views.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SortDatePipe } from './pipes/sort-date.pipe';
     CreateCardFormComponent,
     StatBarComponent,
     AgeStatusDirective,
-    SortDatePipe,
+    SortByWordsPipe,
+    SortByDatePipe,
+    SortByViewsPipe,
   ],
   imports: [
     BrowserModule,
