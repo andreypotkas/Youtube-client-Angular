@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { IItem } from '../models/models';
-import { SortService } from '../services/sort.service';
+import { SortService } from '../../core/services/sort.service';
 
 @Pipe({
   name: 'sortByDate',

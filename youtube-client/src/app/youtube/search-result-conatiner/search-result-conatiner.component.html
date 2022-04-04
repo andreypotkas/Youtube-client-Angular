@@ -1,4 +1,4 @@
-<div class="search-result-container">
+<div *ngIf="runSearchService.isSearch" class="search-result-container">
     <app-search-result-card *ngFor="let item of (items 
     | sortByWords : sortService.currentSortWord 
     | sortByViews : sortService.currentViewsSort

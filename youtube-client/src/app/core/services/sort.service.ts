@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IItem } from '../models/models';
+import { IItem } from '../../youtube/models/models';
 
 @Injectable({
   providedIn: 'root',
