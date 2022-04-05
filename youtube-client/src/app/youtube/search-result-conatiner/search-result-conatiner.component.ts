@@ -18,6 +18,5 @@ export class SearchResultConatinerComponent {
     public runSearchService: RunSearchService,
   ) {
     this.sortService.arr = this.items;
-    console.log('start');
   }
 }

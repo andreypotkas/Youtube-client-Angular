@@ -37,12 +37,11 @@ $btn-color: #2F80ED;
         max-height: 90px;
     }
 
-    .card-bottom-line{
-        height: 5px;
-        width: 100%;
-        background: $btn-color;
+    .status-card{
         position: absolute;
         bottom: 0;
         left: 0;
+        height: 5px;
+        width: 100%;
     }
 }

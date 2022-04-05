@@ -8,12 +8,14 @@ import {
 export class AgeStatusDirective implements AfterViewInit {
   @Input() date: number = 0;
 
+  @Input() type: string = '';
+
   public color: string = '';
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
-    this.renderer.setStyle(this.elementRef.nativeElement, 'backgroundColor', this.defineColor());
+    this.renderer.setStyle(this.elementRef.nativeElement, 'background', this.defineColor());
   }
 
   private defineColor():string {

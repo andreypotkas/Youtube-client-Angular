@@ -1,4 +1,4 @@
-<div class="search-result-card">
+<div  class="search-result-card">
     <img class="video-prewiew" [src]="srcImg" alt="video-prewiew">
 
     <app-stat-bar [index]="index"></app-stat-bar>
@@ -9,7 +9,6 @@
       <h2>{{title | slice: 0:30}} ...</h2>
     </ng-template>
     
-    <button mat-button class="more-btn" >More...</button>
-    
-    <div appAgeStatus [date]="age" class="card-bottom-line"></div>
+    <button mat-button class="more-btn" (click)="openDetailsPage(id)">More...</button>
+    <div appAgeStatus [date]="age" class="status-card"></div>
   </div>

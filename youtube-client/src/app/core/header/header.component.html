@@ -4,14 +4,29 @@
 
     <input class="search-field" type="search" placeholder="What do you want to find out?">
         
-    <button routerLink="search-result" class="search-btn" mat-raised-button (click)="runSearchService.runSearch()">
+    <button routerLink="main" class="search-btn" mat-raised-button (click)="runSearchService.runSearch()">
         search
     </button>
     <button class="settings-btn" mat-raised-button (click)="toggleSortBar.toggleVisibility()"><mat-icon>tune</mat-icon></button>
 
     <div class="user-bar">
-        <span>Your Name</span>
-        <button class="settings-btn" mat-raised-button><mat-icon>account_circle</mat-icon></button>
+        <span [textContent]="authService.login"></span>
+        <button
+             *ngIf="!authService.isLoggedIn"
+              routerLink="login"
+              class="settings-btn" 
+              mat-raised-button>
+              <mat-icon>account_circle</mat-icon>
+        </button>
+
+        <button 
+            *ngIf="authService.isLoggedIn" 
+            routerLink="login" 
+            class="settings-btn" 
+            mat-raised-button
+            (click)="authService.logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
     </div>
     
 </header>
