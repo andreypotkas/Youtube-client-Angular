@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OpenDetailedInfoService } from '../../services/open-detailed-info.service';
+import { OpenDetailedInfoService } from '../../../services/open-detailed-info.service';
 import response from '../response';
 
 @Component({

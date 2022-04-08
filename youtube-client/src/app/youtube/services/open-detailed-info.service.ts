@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IItem } from '../models/models';
-import response from '../search-result-conatiner/response';
+import response from '../pages/search-result-conatiner/response';
 
 @Injectable({
   providedIn: 'root',

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IItem } from '../models/models';
-import { SortService } from '../../core/services/sort.service';
+import { RunSearchService } from '../../../core/services/run-search.service';
+import { SortService } from '../../../core/services/sort.service';
+import { IItem } from '../../models/models';
 import response from './response';
-import { RunSearchService } from '../../core/services/run-search.service';
 
 @Component({
   selector: 'app-search-result-conatiner',
