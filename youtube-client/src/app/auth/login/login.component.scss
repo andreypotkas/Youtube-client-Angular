@@ -10,8 +10,10 @@
           margin: 28px 0 0;
           font-size: 18px;
           font-weight: 700;
+          text-align: left;
       }
       .example-form {
+        text-align: right;
         input{
             height: 37px;
             background: #E5E5E5;
@@ -23,5 +25,9 @@
       
       .example-full-width {
         width: 100%;
+      }
+
+      .login-btn{
+        background: blue;
       }
   }

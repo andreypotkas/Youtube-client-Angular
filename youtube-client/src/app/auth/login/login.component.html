@@ -2,13 +2,32 @@
     <p class="login-title">Login</p>
     <mat-form-field class="example-full-width" appearance="standard">
       <mat-label>Login</mat-label>
-      <input [(ngModel)]="authService.login" matInput placeholder="Name" name="login">
+
+      <input 
+        [(ngModel)]="authService.login"
+        matInput
+        placeholder="Name"
+        name="login"
+      >
+
     </mat-form-field>
   
     <mat-form-field class="example-full-width" appearance="standard">
       <mat-label>Password</mat-label>
-      <input [(ngModel)]="authService.password" matInput placeholder="Password" name="password">
-    </mat-form-field>
 
-    <button type="submit" mat-raised-button (click)="authService.logUser()">submit</button>
+      <input 
+        [(ngModel)]="authService.password" 
+        matInput 
+        placeholder="Password" 
+        name="password"
+      >
+
+    </mat-form-field>
+    <button
+      class="login-btn"
+      type="submit" 
+      mat-raised-button 
+      (click)="authService.logUser()"
+    >Login
+    </button>
   </form>
