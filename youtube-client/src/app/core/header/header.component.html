@@ -12,7 +12,7 @@
     <button class="settings-btn" mat-raised-button (click)="toggleSortBar.toggleVisibility()"><mat-icon>tune</mat-icon></button>
 
     <div class="user-bar">
-        <span *ngIf="authService.isLoggedIn.value" [textContent]="authService.login"></span>
+        <span *ngIf="authService.isLoggedIn.value" [textContent]=" 'name' "></span>
         <button
              *ngIf="!authService.isLoggedIn.value"
               routerLink="login"

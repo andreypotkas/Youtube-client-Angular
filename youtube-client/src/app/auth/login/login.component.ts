@@ -7,6 +7,8 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(public authService: AuthService) {
+  constructor(
+    public authService: AuthService,
+  ) {
   }
 }
