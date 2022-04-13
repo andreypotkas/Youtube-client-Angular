@@ -7,7 +7,7 @@ interface IThumbnailsProperty{
     width: number
     height: number
 }
-interface IThumbnails{
+export interface IThumbnails{
     default: IThumbnailsProperty
     high: IThumbnailsProperty
     maxres: IThumbnailsProperty
@@ -15,7 +15,7 @@ interface IThumbnails{
     standard: IThumbnailsProperty
 }
 
-interface IStatistics{
+export interface IStatistics{
     commentCount: string
     dislikeCount: string
     favoriteCount: string
@@ -39,7 +39,7 @@ interface ISnippet{
 }
 export interface IItem{
     etag:string
-    id:string
+    id:{kind: string, videoId: string}
     kind:string
     snippet: ISnippet
     statistics: IStatistics
@@ -48,8 +48,10 @@ export interface IResponse{
     etag:string
     items:IItem[]
     kind: string
+    nextPageToken?:string
     pageInfo:{
         resultsPerPage: number
         totalResults: number
     }
+    regionCode?: string
 }

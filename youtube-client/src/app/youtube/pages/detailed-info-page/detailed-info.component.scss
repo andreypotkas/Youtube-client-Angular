@@ -18,7 +18,9 @@
         color: white;
         font-size: 32px;
     }
-
+    .card-page-img{
+        background-size: contain;
+    }
     .description-container{
         display: flex;
         flex-direction: column;
@@ -34,8 +36,6 @@
             }
         }
         .card-page-description{
-            overflow-y: scroll;
-            overflow-x: hidden;
             .card-page-description-title{
                 font-size: 14px;
                 font-weight: bold;

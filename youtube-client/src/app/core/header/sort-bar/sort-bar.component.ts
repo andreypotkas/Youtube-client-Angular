@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { sortType } from '../../models/sort-type';
 import { SortService } from '../../services/sort.service';
 
 @Component({
@@ -10,10 +11,14 @@ export class SortBarComponent {
   constructor(public sort: SortService) {}
 
   changeDateSort() {
-    this.sort.currentDateSort = (this.sort.currentDateSort !== 'descending') ? 'descending' : 'ascending';
+    this.sort.currentDateSort = (this.sort.currentDateSort !== sortType.descending)
+      ? sortType.descending
+      : sortType.ascending;
   }
 
   changeViewsSort() {
-    this.sort.currentViewsSort = (this.sort.currentViewsSort !== 'descending') ? 'descending' : 'ascending';
+    this.sort.currentViewsSort = (this.sort.currentViewsSort !== sortType.descending)
+      ? sortType.descending
+      : sortType.ascending;
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   constructor(public router: Router) {}
 
-  public isLoggedIn = false;
+  public isLoggedIn = new BehaviorSubject(false);
 
   public login = 'Your name';
 
@@ -16,7 +17,7 @@ export class AuthService {
   public redirectUrl: string = 'login';
 
   public logUser() {
-    this.isLoggedIn = true;
+    this.isLoggedIn.next(true);
 
     localStorage.setItem('login', this.login);
     localStorage.setItem('password', this.password);
@@ -31,7 +32,7 @@ export class AuthService {
       this.login = localStorage.getItem('login') as string;
       this.password = localStorage.getItem('password') as string;
 
-      this.isLoggedIn = true;
+      this.isLoggedIn.next(true);
     }
   }
 
@@ -43,8 +44,7 @@ export class AuthService {
     this.login = 'Your name';
     this.password = '';
 
-    this.isLoggedIn = false;
-
+    this.isLoggedIn.next(false);
     this.router.navigate(['/login']);
     console.log('Redirect to login page..');
   }

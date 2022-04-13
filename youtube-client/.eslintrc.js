@@ -21,5 +21,10 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-undef': 'off',
     'import/extensions': 'off',
+    'no-useless-constructor': 'off',
+    'no-empty-function': 'off',
+    'no-unused-vars': 'off',
+    'no-return-assign': 'off',
+    'lines-between-class-members': 'off',
   },
-}
+};

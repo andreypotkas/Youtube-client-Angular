@@ -2,17 +2,19 @@
     
     <button class="play-btn" mat-raised-button><mat-icon>play_arrow</mat-icon></button>
 
-    <input class="search-field" type="search" placeholder="What do you want to find out?">
-        
-    <button routerLink="main" class="search-btn" mat-raised-button (click)="runSearchService.runSearch()">
-        search
-    </button>
+    <input 
+      (ngModelChange)="youtubeService.searchValue.next($event)"  
+      [(ngModel)]="youtubeService.searchKeyWord" 
+      class="search-field" 
+      type="search" 
+      placeholder="What do you want to find out?"
+    >
     <button class="settings-btn" mat-raised-button (click)="toggleSortBar.toggleVisibility()"><mat-icon>tune</mat-icon></button>
 
     <div class="user-bar">
-        <span [textContent]="authService.login"></span>
+        <span *ngIf="authService.isLoggedIn.value" [textContent]="authService.login"></span>
         <button
-             *ngIf="!authService.isLoggedIn"
+             *ngIf="!authService.isLoggedIn.value"
               routerLink="login"
               class="settings-btn" 
               mat-raised-button>
@@ -20,7 +22,7 @@
         </button>
 
         <button 
-            *ngIf="authService.isLoggedIn" 
+            *ngIf="authService.isLoggedIn.value" 
             routerLink="login" 
             class="settings-btn" 
             mat-raised-button
@@ -30,4 +32,5 @@
     </div>
     
 </header>
+
 <app-sort-bar *ngIf="toggleSortBar.isBarVisible"></app-sort-bar>

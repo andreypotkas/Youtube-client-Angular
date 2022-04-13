@@ -1,18 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IItem } from '../models/models';
-import { SortService } from '../../core/services/sort.service';
+import { sortType } from 'src/app/core/models/sort-type';
+import { IItem } from '../../core/models/models';
 
 @Pipe({
   name: 'sortByViews',
 })
 export class SortByViewsPipe implements PipeTransform {
-  constructor(public sortService: SortService) {}
+  constructor() {}
 
-  transform(value: IItem[], str: string): IItem[] {
-    if (str === 'descending') {
+  transform(value: IItem[], str: sortType): IItem[] {
+    if (str === sortType.descending) {
       return value.sort((a, b) => Number(b.statistics.viewCount)
       - Number(a.statistics.viewCount));
-    } if (str === 'ascending') {
+    } if (str === sortType.ascending) {
       return value.sort((a, b) => Number(a.statistics.viewCount)
       - Number(b.statistics.viewCount));
     }
