@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  debounceTime, distinctUntilChanged, filter, map, mergeMap, Subject,
+  debounceTime, distinctUntilChanged, filter, map, mergeMap, Observable, Subject, Subscription,
 } from 'rxjs';
 import { IItem, IResponse, IStatistics } from '../models/models';
 import { AuthService } from './auth.service';
@@ -33,7 +33,7 @@ export class YoutubeService {
       });
   }
 
-  getVideos(value: string) {
+  private getVideos(value: string): Subscription | string {
     if (this.authService.isLoggedIn.value) {
       return this.httpClient.get<IResponse>(
         `search?&type=video&maxResults=15&q=${value}&part=snippet`,

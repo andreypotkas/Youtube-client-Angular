@@ -10,13 +10,13 @@ import { SortService } from '../../services/sort.service';
 export class SortBarComponent {
   constructor(public sort: SortService) {}
 
-  changeDateSort() {
+  public changeDateSort():void {
     this.sort.currentDateSort = (this.sort.currentDateSort !== sortType.descending)
       ? sortType.descending
       : sortType.ascending;
   }
 
-  changeViewsSort() {
+  public changeViewsSort(): void {
     this.sort.currentViewsSort = (this.sort.currentViewsSort !== sortType.descending)
       ? sortType.descending
       : sortType.ascending;

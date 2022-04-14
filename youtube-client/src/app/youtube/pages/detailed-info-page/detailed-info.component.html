@@ -1,4 +1,4 @@
-<mat-icon appAgeStatus [date]="age" class="flag">chevron_left</mat-icon>
+<mat-icon appAgeStatus [date]="publicationAge" class="flag">chevron_left</mat-icon>
 <div class="card-page-img" [style.background-image]="'url(&quot;' + youtubeService.searchListWithStat[youtubeService.currentId].snippet.thumbnails.high.url + '&quot;)'" class="video-container"></div>
 <div  class="description-container">
     <div class="card-page-title">
@@ -10,5 +10,5 @@
         <div class="card-page-description-text">{{youtubeService.searchListWithStat[youtubeService.currentId].snippet.description}}</div>
     </div>
     <app-stat-bar [index]="youtubeService.currentId"></app-stat-bar>
-    <div appAgeStatus [date]="age" class="status-card-page"></div>
+    <div appAgeStatus [date]="publicationAge" class="status-card-page"></div>
 </div>

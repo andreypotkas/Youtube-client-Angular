@@ -1,0 +1,14 @@
+$btn-color: #2F80ED;
+
+:host{
+    position: absolute;
+    right: 160px; 
+    button{
+        background: $btn-color;
+        color:white;
+        margin-left: 10px;
+        min-width: 24px;
+        padding: 5px;
+        line-height: 24px;
+    }
+} 

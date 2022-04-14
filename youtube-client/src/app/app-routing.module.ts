@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
+import { CreateCardPageComponent } from './youtube/pages/create-card-page/create-card-page.component';
 import { DetailedInfoPageComponent } from './youtube/pages/detailed-info-page/detailed-info.component';
 import { NotFoundPageComponent } from './youtube/pages/not-found-page/not-found-page.component';
 
@@ -16,12 +17,17 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: '/main',
     pathMatch: 'full',
   },
   {
     path: 'video/:id',
     component: DetailedInfoPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'create',
+    component: CreateCardPageComponent,
     canActivate: [AuthGuard],
   },
   {

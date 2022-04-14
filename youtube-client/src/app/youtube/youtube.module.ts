@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AgeStatusDirective } from './directives/age-status.directive';
 import { SortByDatePipe } from './pipes/sort-by-date.pipe';
 import { SortByViewsPipe } from './pipes/sort-by-views.pipe';
@@ -30,6 +31,7 @@ import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-i
     CommonModule,
     MaterialModule,
     YoutubeRoutingModule,
+    ReactiveFormsModule,
   ],
   exports: [
     SearchResultConatinerComponent,

@@ -9,11 +9,13 @@ import { HeaderComponent } from './header/header.component';
 import { SortBarComponent } from './header/sort-bar/sort-bar.component';
 import { MaterialModule } from './material/material.module';
 import { YoutubeInterceptor } from './interceptors/youtube.interceptor';
+import { UserBarComponent } from './header/user-bar/user-bar.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SortBarComponent,
+    UserBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { YoutubeInterceptor } from './interceptors/youtube.interceptor';
   ],
   exports: [
     HeaderComponent,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: YoutubeInterceptor, multi: true }],
 })

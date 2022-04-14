@@ -6,11 +6,12 @@ import {
   selector: '[appAgeStatus]',
 })
 export class AgeStatusDirective implements AfterViewInit {
-  @Input() date: number = 0;
-
-  @Input() type: string = '';
-
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
+  @Input()date: number = 0;
+  @Input()type: string = '';
+  constructor(
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+  ) {}
 
   ngAfterViewInit(): void {
     this.renderer.setStyle(this.elementRef.nativeElement, 'background', this.defineColor());

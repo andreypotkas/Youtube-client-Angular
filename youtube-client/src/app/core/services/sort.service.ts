@@ -10,4 +10,10 @@ export class SortService {
   public currentDateSort!: sortType;
   public currentViewsSort!: sortType;
   public currentSortWord: string = '';
+  public isBarVisible: boolean = false;
+
+  public toggle(): void {
+    if (this.isBarVisible) this.isBarVisible = false;
+    else this.isBarVisible = true;
+  }
 }
