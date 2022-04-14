@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VideoStatBarComponent } from './stat-bar.component';
+import { StatBarComponent } from './stat-bar.component';
 
 describe('VideoStatBarComponent', () => {
-  let component: VideoStatBarComponent;
-  let fixture: ComponentFixture<VideoStatBarComponent>;
+  let component: StatBarComponent;
+  let fixture: ComponentFixture<StatBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [VideoStatBarComponent],
+      declarations: [StatBarComponent],
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VideoStatBarComponent);
+    fixture = TestBed.createComponent(StatBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

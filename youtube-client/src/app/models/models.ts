@@ -37,7 +37,7 @@ interface ISnippet{
     thumbnails: IThumbnails
     title: string
 }
-interface IItem{
+export interface IItem{
     etag:string
     id:string
     kind:string

@@ -1,4 +1,17 @@
-<button></button>
-<input type="search">
-<button></button>
-<button></button>
+<header>
+    
+    <button class="play-btn" mat-raised-button><mat-icon>play_arrow</mat-icon></button>
+
+    <input class="search-field" type="search" [(ngModel)]="searchValue" placeholder="What do you want to find out?">
+        
+    <button class="search-btn" mat-raised-button (click)="onChanged()">search</button>
+
+    <button class="settings-btn" mat-raised-button (click)="toggleVisibilitySortBar()"><mat-icon>tune</mat-icon></button>
+
+    <div class="user-bar">
+        <span>Your Name</span>
+        <button class="settings-btn" mat-raised-button><mat-icon>account_circle</mat-icon></button>
+    </div>
+    
+</header>
+<app-sort-bar *ngIf="visibilitySortBar"></app-sort-bar>

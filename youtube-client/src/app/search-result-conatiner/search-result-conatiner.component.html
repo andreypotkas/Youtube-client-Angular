@@ -1,1 +1,8 @@
-<p>search-result-conatiner works!</p>
+<div class="search-result-container">
+    <app-search-result-card *ngFor="let item of (items 
+    | sortByWords : sortService.currentSortWord 
+    | sortByViews : sortService.currentViewsSort
+    | sortByDate : sortService.currentDateSort); 
+    let i = index" [index]="i">
+    </app-search-result-card>
+</div>

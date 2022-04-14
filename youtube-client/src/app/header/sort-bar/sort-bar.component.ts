@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SortService } from 'src/app/services/sort.service';
 
 @Component({
   selector: 'app-sort-bar',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./sort-bar.component.scss'],
 })
 export class SortBarComponent {
+  constructor(public sort: SortService) {}
 
+  changeDateSort() {
+    this.sort.currentDateSort = (this.sort.currentDateSort !== 'descending') ? 'descending' : 'ascending';
+  }
+
+  changeViewsSort() {
+    this.sort.currentViewsSort = (this.sort.currentViewsSort !== 'descending') ? 'descending' : 'ascending';
+  }
 }

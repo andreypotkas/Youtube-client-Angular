@@ -1,5 +1,8 @@
-$bg-color: #E5E5E5;
-$btn-color: #2F80ED;
+
 $btn-color-hover: #5EA2FF;
+
 $ff: Roboto;
 
+:host{
+    max-width: 1440px;
+}
