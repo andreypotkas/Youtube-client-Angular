@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ISnippet, IStatistics } from '../../../core/models/models';
 import { YoutubeService } from '../../../core/services/youtube.service';
 
 @Component({
@@ -6,11 +7,15 @@ import { YoutubeService } from '../../../core/services/youtube.service';
   templateUrl: './detailed-info.component.html',
   styleUrls: ['./detailed-info.component.scss'],
 })
-export class DetailedInfoPageComponent {
-  public publicationAge: number = 0;
+export class DetailedInfoPageComponent implements OnInit {
+  public publicationAge!: number;
+  public stat: IStatistics = this.youtubeService.currentStat;
+  public snippet: ISnippet = this.youtubeService.currentSnippet;
+  constructor(public youtubeService: YoutubeService) {}
 
-  constructor(public youtubeService: YoutubeService) {
-    this.publicationAge = Date.now()
-    - Date.parse(youtubeService.searchListWithStat[0].snippet.publishedAt);
+  ngOnInit(): void {
+    if (this.snippet) {
+      this.publicationAge = Date.now() - Date.parse(this.snippet.publishedAt);
+    }
   }
 }

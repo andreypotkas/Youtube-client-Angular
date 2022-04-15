@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IItem } from '../../../../core/models/models';
 import { YoutubeService } from '../../../../core/services/youtube.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { YoutubeService } from '../../../../core/services/youtube.service';
 })
 export class SearchResultCardComponent implements OnInit {
   @Input() index!:number;
+  @Input() video!:IItem;
   public title!: string;
   public srcImg!: string;
   public publicationAge!: number;
@@ -18,14 +20,14 @@ export class SearchResultCardComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     if (this.youtubeService.searchListWithStat) {
-      this.title = this.youtubeService.searchListWithStat[this.index].snippet.title;
-      this.srcImg = this.youtubeService.searchListWithStat[this.index].snippet.thumbnails.high.url;
-      this.publicationAge = Date.now() - Date.parse(this.youtubeService
-        .searchListWithStat[this.index].snippet.publishedAt);
+      this.title = this.video.snippet.title;
+      this.srcImg = this.video.snippet.thumbnails.high.url;
+      this.publicationAge = Date.now() - Date.parse(this.video.snippet.publishedAt);
     }
   }
   public openDetailsPage(id:number): void {
-    this.router.navigate(['/video', this.youtubeService.searchListWithStat[this.index].id.videoId]);
-    this.youtubeService.currentId = this.index;
+    this.router.navigate(['/video', this.video.id.videoId]);
+    this.youtubeService.currentSnippet = this.video.snippet;
+    this.youtubeService.currentStat = this.video.statistics;
   }
 }

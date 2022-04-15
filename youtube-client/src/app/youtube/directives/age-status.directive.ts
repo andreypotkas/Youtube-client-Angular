@@ -12,7 +12,6 @@ export class AgeStatusDirective implements AfterViewInit {
     private elementRef: ElementRef,
     private renderer: Renderer2,
   ) {}
-
   ngAfterViewInit(): void {
     this.renderer.setStyle(this.elementRef.nativeElement, 'background', this.defineColor());
   }

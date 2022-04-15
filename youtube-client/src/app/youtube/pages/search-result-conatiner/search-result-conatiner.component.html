@@ -1,5 +1,5 @@
 <div class="search-result-container">
-    <app-search-result-card *ngFor="let item of (youtubeService.searchListWithStat
+    <app-search-result-card [video]="videoList[i]" *ngFor="let video of (videoList
     | sortByWords : sortService.currentSortWord 
     | sortByViews : sortService.currentViewsSort
     | sortByDate : sortService.currentDateSort); 

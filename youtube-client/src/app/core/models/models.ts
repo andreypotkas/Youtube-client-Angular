@@ -23,7 +23,7 @@ export interface IStatistics{
     viewCount: string
 }
 
-interface ISnippet{
+export interface ISnippet{
     categoryId: string
     channelId: string
     channelTitle: string

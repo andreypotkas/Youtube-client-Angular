@@ -10,7 +10,7 @@
   <button class="settings-btn" mat-raised-button (click)="sortService.toggle()">
     <mat-icon>tune</mat-icon>
   </button>
-
   <app-user-bar></app-user-bar>
 </header>
+
 <app-sort-bar *ngIf="sortService.isBarVisible"></app-sort-bar>

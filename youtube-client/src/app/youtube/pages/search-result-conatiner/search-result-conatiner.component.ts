@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
+import { SortService } from '../../../core/services/sort.service';
 import { IItem } from '../../../core/models/models';
 import { YoutubeService } from '../../../core/services/youtube.service';
-import { SortService } from '../../../core/services/sort.service';
 
 @Component({
   selector: 'app-search-result-conatiner',
@@ -9,12 +10,24 @@ import { SortService } from '../../../core/services/sort.service';
   styleUrls: ['./search-result-conatiner.component.scss'],
 })
 
-export class SearchResultConatinerComponent {
-  public items!:IItem[];
+export class SearchResultConatinerComponent implements OnInit {
+  public videoList!:IItem[];
   constructor(
-    public sortService: SortService,
     public youtubeService: YoutubeService,
-  ) {
-    this.sortService.videoList = this.items;
+    public sortService: SortService,
+  ) { }
+
+  ngOnInit(): void {
+    this.youtubeService.searchValue.pipe(
+      debounceTime(700),
+      distinctUntilChanged(),
+      filter((item) => item.length >= 3),
+    )
+      .subscribe({
+        next: (value) => {
+          this.youtubeService.getVideos(value)
+            .subscribe((videos) => this.videoList = videos);
+        },
+      });
   }
 }

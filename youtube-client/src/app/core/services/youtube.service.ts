@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  debounceTime, distinctUntilChanged, filter, map, mergeMap, Observable, Subject, Subscription,
+  EMPTY, map, mergeMap, Observable, Subject,
 } from 'rxjs';
-import { IItem, IResponse, IStatistics } from '../models/models';
+import {
+  IItem, IResponse, ISnippet, IStatistics,
+} from '../models/models';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -13,27 +15,17 @@ export class YoutubeService {
   public searchValue = new Subject<string>();
   public searchKeyWord!: string;
   public statisticsArr!: IStatistics[];
-  public currentId!: number;
+  public currentSnippet!: ISnippet;
+  public currentStat!: IStatistics;
   public searchList!: IItem[];
   public searchListWithStat: IItem[] = [];
 
   constructor(
     public httpClient: HttpClient,
     public authService: AuthService,
-  ) {
-    this.searchValue.pipe(
-      debounceTime(700),
-      distinctUntilChanged(),
-      filter((item) => item.length >= 3),
-    )
-      .subscribe({
-        next: (value) => {
-          this.getVideos(value);
-        },
-      });
-  }
+  ) {}
 
-  private getVideos(value: string): Subscription | string {
+  public getVideos(value: string): Observable<any> {
     if (this.authService.isLoggedIn.value) {
       return this.httpClient.get<IResponse>(
         `search?&type=video&maxResults=15&q=${value}&part=snippet`,
@@ -45,19 +37,15 @@ export class YoutubeService {
           return idList;
         }),
         mergeMap((idList) => this.httpClient.get(`videos?part=statistics&&id=${idList}`)),
-      ).pipe(map((stat:any) => {
+      ).pipe(map((stat: any) => {
         const statistics: IStatistics[] = stat.items.map((items: IItem) => items.statistics);
         this.statisticsArr = statistics;
-        return statistics;
-      })).subscribe({
-        next: (stat) => {
-          stat.forEach((item, index) => {
-            this.searchListWithStat[index] = this.searchList[index];
-            this.searchListWithStat[index].statistics = item;
-          });
-        },
-      });
+        statistics.forEach((item, index) => {
+          this.searchList[index].statistics = item;
+        });
+        return this.searchList;
+      }));
     }
-    return '';
+    return EMPTY;
   }
 }
