@@ -1,0 +1,14 @@
+:host{
+    display: flex;
+    justify-content: center;
+    column-gap: 100px;
+    p{
+        line-height: 120px;
+        font-size: 32px;
+        color: blue;
+    }
+    .material-icons{
+        font-size: 120px;
+        color: blue;
+    }
+}

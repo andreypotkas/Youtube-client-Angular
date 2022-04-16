@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title = 'youtube-client';
-
-  public isSearch = false;
-
-  runSearch() {
-    this.isSearch = true;
-  }
 }

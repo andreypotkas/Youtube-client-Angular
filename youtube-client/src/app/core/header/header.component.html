@@ -1,0 +1,33 @@
+<header>
+    
+    <button class="play-btn" mat-raised-button><mat-icon>play_arrow</mat-icon></button>
+
+    <input class="search-field" type="search" placeholder="What do you want to find out?">
+        
+    <button routerLink="main" class="search-btn" mat-raised-button (click)="runSearchService.runSearch()">
+        search
+    </button>
+    <button class="settings-btn" mat-raised-button (click)="toggleSortBar.toggleVisibility()"><mat-icon>tune</mat-icon></button>
+
+    <div class="user-bar">
+        <span [textContent]="authService.login"></span>
+        <button
+             *ngIf="!authService.isLoggedIn"
+              routerLink="login"
+              class="settings-btn" 
+              mat-raised-button>
+              <mat-icon>account_circle</mat-icon>
+        </button>
+
+        <button 
+            *ngIf="authService.isLoggedIn" 
+            routerLink="login" 
+            class="settings-btn" 
+            mat-raised-button
+            (click)="authService.logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </div>
+    
+</header>
+<app-sort-bar *ngIf="toggleSortBar.isBarVisible"></app-sort-bar>

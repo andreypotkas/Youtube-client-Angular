@@ -1,0 +1,14 @@
+<div  class="search-result-card">
+    <img class="video-prewiew" [src]="srcImg" alt="video-prewiew">
+
+    <app-stat-bar [index]="index"></app-stat-bar>
+
+    <h2 *ngIf="titleLength < 40; else shortTitle">{{title}}</h2>
+
+    <ng-template #shortTitle>
+      <h2>{{title | slice: 0:30}} ...</h2>
+    </ng-template>
+    
+    <button mat-button class="more-btn" (click)="openDetailsPage(id)">More...</button>
+    <div appAgeStatus [date]="age" class="status-card"></div>
+  </div>

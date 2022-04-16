@@ -1,0 +1,14 @@
+<mat-icon appAgeStatus [date]="age" class="flag">chevron_left</mat-icon>
+<div [style.background-image]="'url(&quot;' + openDetailedService.current.snippet.thumbnails.maxres.url + '&quot;)'" class="video-container"></div>
+<div  class="description-container">
+    <div class="card-page-title">
+        <div class="card-page-title-text">{{openDetailedService.current.snippet.title}}</div>
+        <div class="card-page-title-date">{{openDetailedService.current.snippet.publishedAt | date:'fullDate'}}</div>
+    </div>
+    <div class="card-page-description">
+        <div class="card-page-description-title">Description</div>
+        <div class="card-page-description-text">{{openDetailedService.current.snippet.description}}</div>
+    </div>
+    <app-stat-bar [index]="openDetailedService.id"></app-stat-bar>
+    <div appAgeStatus [date]="age" class="status-card-page"></div>
+</div>
