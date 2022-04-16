@@ -7,8 +7,7 @@ import { checkDateValidator } from '../directives/check-date.directive';
 })
 export class CreateCardService {
   private imgReg = '(https?://[^ ]*.(?:gif|png|jpg|jpeg))';
-  private videoReg = '(https?://[^ ]*)';
-  constructor() { }
+  private videoReg = '(https?://[^ ]*)'; // i haven't implemented it yet
   public card = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     description: new FormControl('', [Validators.maxLength(255)]),

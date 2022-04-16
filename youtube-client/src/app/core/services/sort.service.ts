@@ -13,7 +13,6 @@ export class SortService {
   public isBarVisible: boolean = false;
 
   public toggle(): void {
-    if (this.isBarVisible) this.isBarVisible = false;
-    else this.isBarVisible = true;
+    this.isBarVisible = !this.isBarVisible;
   }
 }

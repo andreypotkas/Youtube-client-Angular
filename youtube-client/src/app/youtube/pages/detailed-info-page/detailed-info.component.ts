@@ -9,13 +9,15 @@ import { YoutubeService } from '../../../core/services/youtube.service';
 })
 export class DetailedInfoPageComponent implements OnInit {
   public publicationAge!: number;
-  public stat: IStatistics = this.youtubeService.currentStat;
-  public snippet: ISnippet = this.youtubeService.currentSnippet;
-  constructor(public youtubeService: YoutubeService) {}
+  public stat!: IStatistics;
+  public snippet!: ISnippet;
+  constructor(
+    public youtubeService: YoutubeService,
+  ) {}
 
   ngOnInit(): void {
-    if (this.snippet) {
-      this.publicationAge = Date.now() - Date.parse(this.snippet.publishedAt);
-    }
+    this.stat = this.youtubeService.currentStat;
+    this.snippet = this.youtubeService.currentSnippet;
+    this.publicationAge = Date.now() - Date.parse(this.snippet.publishedAt);
   }
 }

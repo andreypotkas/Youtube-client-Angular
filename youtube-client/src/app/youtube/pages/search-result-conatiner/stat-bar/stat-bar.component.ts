@@ -15,7 +15,9 @@ export class StatBarComponent implements OnInit {
     public views!: string;
     public comments!: string;
     public likes!: string;
-    constructor(public youtubeService: YoutubeService) {
+    constructor(
+      public youtubeService: YoutubeService,
+    ) {
     }
 
     ngOnInit(): void {

@@ -6,15 +6,7 @@ $btn-color: #2F80ED;
   height: 450px;
   background: #f3f3f3;
   margin: 200px auto 0;
-  form{
-    padding-bottom: 20px;
-    .ng-valid, .ng-valid.required  {
-      border: 2px solid #42A948; /* green */
-    }
-    .ng-invalid:not(form)  {
-      border: 2px solid #a94442; /* red */
-    }
-  }
+
   p{
     margin: 28px 0 0;
     font-size: 18px;
@@ -29,7 +21,14 @@ $btn-color: #2F80ED;
     min-width: 150px;
     max-width: 300px;
     width: 100%;
-    
+    padding-bottom: 20px;
+
+    .ng-valid, .ng-valid.required  {
+      border: 2px solid #42A948; 
+    }
+    .ng-invalid:not(form)  {
+      border: 2px solid #a94442;
+    }
     .alert div {
       background-color: #fed3d3;
       color: #820000;

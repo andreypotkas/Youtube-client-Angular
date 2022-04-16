@@ -14,12 +14,10 @@ import { AuthService } from './auth.service';
 export class YoutubeService {
   public searchValue = new Subject<string>();
   public searchKeyWord!: string;
-  public statisticsArr!: IStatistics[];
   public currentSnippet!: ISnippet;
   public currentStat!: IStatistics;
   public searchList!: IItem[];
-  public searchListWithStat: IItem[] = [];
-
+  private statisticsArr!: IStatistics[];
   constructor(
     public httpClient: HttpClient,
     public authService: AuthService,

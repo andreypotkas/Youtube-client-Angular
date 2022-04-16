@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { sortType } from '../../models/sort-type';
 import { SortService } from '../../services/sort.service';
 
@@ -8,7 +8,9 @@ import { SortService } from '../../services/sort.service';
   styleUrls: ['./sort-bar.component.scss'],
 })
 export class SortBarComponent {
-  constructor(public sort: SortService) {}
+  constructor(
+    public sort: SortService,
+  ) {}
 
   public changeDateSort():void {
     this.sort.currentDateSort = (this.sort.currentDateSort !== sortType.descending)

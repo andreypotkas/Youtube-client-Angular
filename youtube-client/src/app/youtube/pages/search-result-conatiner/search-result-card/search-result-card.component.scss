@@ -11,12 +11,12 @@ $btn-color: #2F80ED;
     box-sizing: border-box;
     padding: 0 20px;
     text-align: center;
+
     .video-prewiew{
         width: 223px;
         height: 123px;
         margin: 20px 0 10px;
     }
-
     .more-btn{
         background: $btn-color;
         width: 120px;
@@ -27,7 +27,6 @@ $btn-color: #2F80ED;
         bottom: 15px;
         left:70px;
     }
-
     h2{
         font-size: 20px;
         text-align: right;
@@ -36,7 +35,6 @@ $btn-color: #2F80ED;
         color: #4F4F4F;
         max-height: 90px;
     }
-
     .status-card{
         position: absolute;
         bottom: 0;

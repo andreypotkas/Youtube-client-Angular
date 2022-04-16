@@ -9,6 +9,6 @@
       <h2>{{title | slice: 0:30}} ...</h2>
     </ng-template>
     
-    <button mat-button class="more-btn" (click)="openDetailsPage(index)">More...</button>
+    <button mat-button class="more-btn" (click)="openDetailsPage()">More...</button>
     <div appAgeStatus [date]="publicationAge" class="status-card"></div>
   </div>

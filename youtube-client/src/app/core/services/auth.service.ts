@@ -11,9 +11,6 @@ import { checkPasswordValidator } from '../directives/check-password.directive';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(
-    public router: Router,
-  ) {}
   public redirectUrl: string = 'login';
   public isLoggedIn = new BehaviorSubject(false);
   public user = new FormGroup({
@@ -21,10 +18,15 @@ export class AuthService {
     password: new FormControl('', [Validators.required, Validators.minLength(8), checkPasswordValidator()]),
   });
 
+  constructor(
+    private router: Router,
+  ) {}
+
   public get email(): AbstractControl {
     return this.user.get('email') as AbstractControl;
   }
-  get password(): AbstractControl {
+
+  public get password(): AbstractControl {
     return this.user.get('password') as AbstractControl;
   }
 
@@ -48,9 +50,7 @@ export class AuthService {
   }
 
   public logout(): void {
-    localStorage.removeItem('login');
-    localStorage.removeItem('password');
-    localStorage.removeItem('token');
+    localStorage.clear();
     this.user.setValue({
       email: '',
       password: '',

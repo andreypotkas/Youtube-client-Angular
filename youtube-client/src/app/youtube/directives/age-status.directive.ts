@@ -7,7 +7,6 @@ import {
 })
 export class AgeStatusDirective implements AfterViewInit {
   @Input()date: number = 0;
-  @Input()type: string = '';
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,

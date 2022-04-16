@@ -16,9 +16,12 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanLoad {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
-  canLoad(
+  public canLoad(
     route: Route,
     segments: UrlSegment[],
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -26,7 +29,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.checkLogin(url);
   }
 
-  canActivate(
+  public canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -34,7 +37,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.checkLogin(url);
   }
 
-  checkLogin(url: string) {
+  public checkLogin(url: string) {
     if (this.authService.isLoggedIn) { return true; }
     this.authService.redirectUrl = url;
     this.router.navigate(['/login']);

@@ -4,96 +4,92 @@
   (ngSubmit)="createService.create()"
   >
   <p class="create-form-title">Create new card</p>
-
   <div class="title-container">
-      <label>Title</label>
-      <input 
-        formControlName="title"
-        name="title"
-      >
-      <div *ngIf="createService.title?.invalid && (createService.title?.dirty || createService.title?.touched)" 
-       class="alert alert-danger">
-        <div *ngIf="createService.title?.errors?.['required']">
-          Please enter a title
-        </div>
-        <div *ngIf="createService.title?.errors?.['minlength']">
-          The title is too short
-        </div>
-        <div *ngIf="createService.title?.errors?.['maxlength']">
-          The title is too long
-        </div>
+    <label>Title</label>
+    <input 
+      formControlName="title"
+      name="title"
+    >
+    <div *ngIf="createService.title?.invalid && (createService.title?.dirty || createService.title?.touched)" 
+     class="alert alert-danger">
+      <div *ngIf="createService.title?.errors?.['required']">
+        Please enter a title
+      </div>
+      <div *ngIf="createService.title?.errors?.['minlength']">
+        The title is too short
+      </div>
+      <div *ngIf="createService.title?.errors?.['maxlength']">
+        The title is too long
       </div>
     </div>
-  
+  </div>
   <div class="description-container">
-      <label>Description</label>
-      <input 
-        formControlName="description"
-        name="description"
-      >
-      <div *ngIf="createService.description?.invalid" 
-       class="alert alert-danger">
-        <div *ngIf="createService.description?.errors?.['maxlength']">
-          The title is too long
-        </div>
+    <label>Description</label>
+    <input 
+      formControlName="description"
+      name="description"
+    >
+    <div *ngIf="createService.description?.invalid" 
+     class="alert alert-danger">
+      <div *ngIf="createService.description?.errors?.['maxlength']">
+        The title is too long
       </div>
-    
     </div>
-
+  </div>
   <div class="img-container">
-        <label>Img</label>
-        <input 
-          formControlName="img"
-          name="img"
-        >
-        <div *ngIf="createService.img?.invalid && (createService.img?.dirty || createService.img?.touched)" 
-       class="alert alert-danger">
-        <div *ngIf="createService.img?.errors?.['required']">
-          Please enter a link to the image
-        </div>
-        <div *ngIf="createService.img?.errors?.['pattern']">
-          The image link is invalid
-        </div>
+    <label>Img</label>
+    <input 
+      formControlName="img"
+      name="img"
+    >
+    <div *ngIf="createService.img?.invalid && (createService.img?.dirty || createService.img?.touched)" 
+      class="alert alert-danger">
+      <div *ngIf="createService.img?.errors?.['required']">
+        Please enter a link to the image
       </div>
+      <div *ngIf="createService.img?.errors?.['pattern']">
+        The image link is invalid
       </div>
-      <div class="link-container">
-        <label>Link video</label>
-        <input 
-          formControlName="link"
-          name="link"
-        >
-        <div *ngIf="createService.link?.invalid && (createService.link?.dirty || createService.link?.touched)" 
-       class="alert alert-danger">
-        <div *ngIf="createService.link?.errors?.['required']">
-          Please enter a link to the video
-        </div>
-        <div *ngIf="createService.link?.errors?.['pattern']">
-          The image link is invalid
-        </div>
+    </div>
+  </div>
+  <div class="link-container">
+    <label>Link video</label>
+    <input 
+      formControlName="link"
+      name="link"
+    >
+    <div *ngIf="createService.link?.invalid && (createService.link?.dirty || createService.link?.touched)" 
+      class="alert alert-danger">
+      <div *ngIf="createService.link?.errors?.['required']">
+        Please enter a link to the video
       </div>
+      <div *ngIf="createService.link?.errors?.['pattern']">
+        The image link is invalid
       </div>
-      <div class="date-container">
-        <label>Date</label>
-        <input 
-          type="date"
-          formControlName="date"
-          name="date"
-        >
-        <div *ngIf="createService.date?.invalid && (createService.date?.dirty || createService.date?.touched)" 
-       class="alert alert-danger">
-        <div *ngIf="createService.date?.errors?.['required']">
-          Please enter a creation date
-        </div>
-        <div *ngIf="createService.date?.errors?.['correctDate']">
-          The date is invalid
-        </div>
+    </div>
+  </div>
+  <div class="date-container">
+    <label>Date</label>
+    <input 
+      type="date"
+      formControlName="date"
+      name="date"
+    >
+    <div *ngIf="createService.date?.invalid && (createService.date?.dirty || createService.date?.touched)" 
+      class="alert alert-danger">
+      <div *ngIf="createService.date?.errors?.['required']">
+        Please enter a creation date
       </div>
+      <div *ngIf="createService.date?.errors?.['correctDate']">
+        The date is invalid
       </div>
-    <button
-      class="login-btn"
-      type="submit" 
-      mat-raised-button 
-      [disabled]="!createService.card.valid"
-    >Create card
-    </button>
-  </form>
+    </div>
+  </div>
+  <button
+    class="login-btn"
+    type="submit" 
+    mat-raised-button 
+    [disabled]="!createService.card.valid"
+  >Create card
+  </button>
+</form>
