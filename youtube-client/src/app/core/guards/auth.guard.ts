@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  CanDeactivate,
   CanLoad,
   Route,
   Router,
@@ -37,9 +38,8 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.checkLogin(url);
   }
 
-  public checkLogin(url: string) {
-    if (this.authService.isLoggedIn) { return true; }
-    this.authService.redirectUrl = url;
+  public checkLogin(url: string): boolean {
+    if (this.authService.isLoggedIn.value) { return true; }
     this.router.navigate(['/login']);
     return false;
   }

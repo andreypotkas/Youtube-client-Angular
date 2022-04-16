@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
+import { LeavePageGuard } from './core/guards/leave-page.guard';
 import { CreateCardPageComponent } from './youtube/pages/create-card-page/create-card-page.component';
 import { DetailedInfoPageComponent } from './youtube/pages/detailed-info-page/detailed-info.component';
 import { NotFoundPageComponent } from './youtube/pages/not-found-page/not-found-page.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {
     path: 'create',
     component: CreateCardPageComponent,
+    canDeactivate: [LeavePageGuard],
     canActivate: [AuthGuard],
   },
   {

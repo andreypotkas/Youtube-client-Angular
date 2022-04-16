@@ -11,7 +11,6 @@ import { checkPasswordValidator } from '../directives/check-password.directive';
   providedIn: 'root',
 })
 export class AuthService {
-  public redirectUrl: string = 'login';
   public isLoggedIn = new BehaviorSubject(false);
   public user = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
