@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -26,6 +27,7 @@ import { UserBarComponent } from './header/user-bar/user-bar.component';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({}, {}),
   ],
   exports: [
     HeaderComponent,
