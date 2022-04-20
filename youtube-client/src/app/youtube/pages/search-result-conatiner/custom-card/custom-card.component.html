@@ -1,0 +1,14 @@
+<div  class="search-result-card">
+    <div class="custom-video-prewiew">
+        <img [src]="srcImgCustomVideo" alt="custom-video-prewiew">
+    </div>
+
+    <h2 *ngIf="titleCustomVideo.length < 40; else shortTitle">{{titleCustomVideo}}</h2>
+
+    <ng-template #shortTitle>
+      <h2>{{titleCustomVideo | slice: 0:30}} ...</h2>
+    </ng-template>
+    
+    <button mat-button class="more-btn" (click)="openDetailsPage()">More...</button>
+    <div appAgeStatus [date]="publicationAgeCustomVideo" class="status-card"></div>
+  </div>

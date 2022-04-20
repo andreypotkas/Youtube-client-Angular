@@ -27,7 +27,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'create',
+    path: 'admin',
     component: CreateCardPageComponent,
     canDeactivate: [LeavePageGuard],
     canActivate: [AuthGuard],

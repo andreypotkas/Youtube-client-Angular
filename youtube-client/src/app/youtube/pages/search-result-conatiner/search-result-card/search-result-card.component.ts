@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy, Component, Input, OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { ICustomVideo } from '../../../../redux/app.state';
 import { IItem } from '../../../../core/models/models';
 import { YoutubeService } from '../../../../core/services/youtube.service';
 
@@ -12,7 +13,8 @@ import { YoutubeService } from '../../../../core/services/youtube.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchResultCardComponent implements OnInit {
-  @Input() video!:IItem;
+  @Input() video!: IItem;
+  @Input() customVideo!: ICustomVideo;
   public title!: string;
   public srcImg!: string;
   public publicationAge!: number;
@@ -21,7 +23,7 @@ export class SearchResultCardComponent implements OnInit {
     public youtubeService: YoutubeService,
   ) {}
   ngOnInit(): void {
-    if (this.youtubeService.searchList) {
+    if (this.video) {
       this.title = this.video.snippet.title;
       this.srcImg = this.video.snippet.thumbnails.high.url;
       this.publicationAge = Date.now() - Date.parse(this.video.snippet.publishedAt);

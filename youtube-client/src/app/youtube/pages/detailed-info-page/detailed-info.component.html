@@ -1,5 +1,5 @@
 <mat-icon appAgeStatus [date]="publicationAge" class="flag">chevron_left</mat-icon>
-<div class="card-page-img" [style.background-image]="'url(&quot;' + snippet.thumbnails.high.url + '&quot;)'" class="video-container"></div>
+<img class="card-page-img" [src]="snippet.thumbnails.high.url" class="video-container">
 <div  class="description-container">
     <div class="card-page-title">
         <div class="card-page-title-text">{{snippet.title}}</div>

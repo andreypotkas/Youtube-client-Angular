@@ -6,7 +6,7 @@
 </button>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="create">Create new card</button>
+  <button mat-menu-item routerLink="admin">Admin</button>
 </mat-menu>
 
 <button *ngIf="!authService.isLoggedIn.value; else loggedUser"

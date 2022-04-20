@@ -1,4 +1,6 @@
 <div class="search-result-container">
+    <app-custom-card [customVideo]="customVideoList[i]" *ngFor="let video of customVideoList let i = index">
+    </app-custom-card>
     <app-search-result-card [video]="videoList[i]" *ngFor="let video of (videoList
     | sortByWords : sortService.currentSortWord 
     | sortByViews : sortService.currentViewsSort

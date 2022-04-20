@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import {
   EMPTY, map, mergeMap, Observable, Subject,
 } from 'rxjs';
+import { updateApiVideoList } from '../../redux/actions/api-videos.action';
 import {
   IItem, IResponse, ISnippet, IStatistics,
 } from '../models/models';
@@ -21,6 +23,7 @@ export class YoutubeService {
   constructor(
     public httpClient: HttpClient,
     public authService: AuthService,
+    private store: Store,
   ) {}
 
   public getVideos(value: string): Observable<any> {
@@ -41,6 +44,7 @@ export class YoutubeService {
         statistics.forEach((item, index) => {
           this.searchList[index].statistics = item;
         });
+        this.store.dispatch(updateApiVideoList({ newApiVideoList: this.searchList }));
         return this.searchList;
       }));
     }

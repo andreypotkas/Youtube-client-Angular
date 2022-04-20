@@ -13,6 +13,7 @@ import { SearchResultConatinerComponent } from './pages/search-result-conatiner/
 import { StatBarComponent } from './pages/search-result-conatiner/stat-bar/stat-bar.component';
 import { CreateCardPageComponent } from './pages/create-card-page/create-card-page.component';
 import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-info.component';
+import { CustomCardComponent } from './pages/search-result-conatiner/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DetailedInfoPageComponent } from './pages/detailed-info-page/detailed-i
     SortByDatePipe,
     SortByViewsPipe,
     SortByWordsPipe,
+    CustomCardComponent,
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,8 @@ import { SortBarComponent } from './header/sort-bar/sort-bar.component';
 import { MaterialModule } from './material/material.module';
 import { YoutubeInterceptor } from './interceptors/youtube.interceptor';
 import { UserBarComponent } from './header/user-bar/user-bar.component';
+import { customVideoReducer } from '../redux/reducers/custom-video.reducer';
+import { ApiVideoListReducer } from '../redux/reducers/api-videos.reducer';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { UserBarComponent } from './header/user-bar/user-bar.component';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ customVideos: customVideoReducer, apiVideos: ApiVideoListReducer }),
   ],
   exports: [
     HeaderComponent,
