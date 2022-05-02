@@ -1,8 +1,10 @@
-<div *ngIf="runSearchService.isSearch" class="search-result-container">
-    <app-search-result-card [id]="items[i].id" *ngFor="let item of (items 
+<div class="search-result-container">
+    <app-custom-card [customVideo]="customVideoList[i]" *ngFor="let video of customVideoList let i = index">
+    </app-custom-card>
+    <app-search-result-card [video]="videoList[i]" *ngFor="let video of (videoList
     | sortByWords : sortService.currentSortWord 
     | sortByViews : sortService.currentViewsSort
     | sortByDate : sortService.currentDateSort); 
-    let i = index" [index]="i">
+    let i = index">
     </app-search-result-card>
 </div>

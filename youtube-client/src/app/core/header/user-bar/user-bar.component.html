@@ -1,0 +1,27 @@
+<button
+  *ngIf="authService.isLoggedIn.value" 
+  mat-button 
+  [matMenuTriggerFor]="menu"
+  >{{authService.user.value.email}}
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="admin">Admin</button>
+</mat-menu>
+
+<button *ngIf="!authService.isLoggedIn.value; else loggedUser"
+  routerLink="login"
+  class="settings-btn" 
+  mat-raised-button>
+  <mat-icon>account_circle</mat-icon>
+</button>
+
+<ng-template #loggedUser>
+  <button  
+      routerLink="login" 
+      class="settings-btn" 
+      mat-raised-button
+      (click)="authService.logout()">
+      <mat-icon>logout</mat-icon>
+  </button>
+</ng-template>

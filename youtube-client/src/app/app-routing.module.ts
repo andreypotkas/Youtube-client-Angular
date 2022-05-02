@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth/guards/auth.guard';
-import { CardPageComponent } from './youtube/pages/card-page/card-page.component';
+import { AuthGuard } from './core/guards/auth.guard';
+import { LeavePageGuard } from './core/guards/leave-page.guard';
+import { CreateCardPageComponent } from './youtube/pages/create-card-page/create-card-page.component';
+import { DetailedInfoPageComponent } from './youtube/pages/detailed-info-page/detailed-info.component';
 import { NotFoundPageComponent } from './youtube/pages/not-found-page/not-found-page.component';
 
 const routes: Routes = [
@@ -16,12 +18,18 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: '/main',
     pathMatch: 'full',
   },
   {
     path: 'video/:id',
-    component: CardPageComponent,
+    component: DetailedInfoPageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin',
+    component: CreateCardPageComponent,
+    canDeactivate: [LeavePageGuard],
     canActivate: [AuthGuard],
   },
   {

@@ -1,33 +1,56 @@
-<form class="example-form">
-    <p class="login-title">Login</p>
-    <mat-form-field class="example-full-width" appearance="standard">
-      <mat-label>Login</mat-label>
-
-      <input 
-        [(ngModel)]="authService.login"
-        matInput
-        placeholder="Name"
-        name="login"
-      >
-
-    </mat-form-field>
+<form
+  [formGroup]="authService.user" 
+  class="example-form"
+  (ngSubmit)="authService.loginUser()"
+  >
+  <p class="login-title">Login</p>
+  <div class="email-container">
+    <label>Email</label>
+    <input 
+      formControlName="email"
+      placeholder="example@gmail.com"
+      name="email"
+    >
+    <div *ngIf="authService.email?.invalid && (authService.email?.dirty || authService.email?.touched)"
+      class="alert alert-danger">
+      <div *ngIf="authService.email?.errors?.['required']">
+        Please enter a login email
+      </div>
+      <div *ngIf="authService.email?.errors?.['email']">
+        The login email is invalid
+      </div>
+    </div>
+  </div>
   
-    <mat-form-field class="example-full-width" appearance="standard">
-      <mat-label>Password</mat-label>
-
-      <input 
-        [(ngModel)]="authService.password" 
-        matInput 
-        placeholder="Password" 
-        name="password"
-      >
-
-    </mat-form-field>
-    <button
-      class="login-btn"
-      type="submit" 
-      mat-raised-button 
-      (click)="authService.logUser()"
-    >Login
-    </button>
-  </form>
+  <div class="password-container">
+    <label>Password</label>
+    <input 
+    id="password"
+      formControlName="password"
+      placeholder="password" 
+      name="password"
+    >
+    <div *ngIf="authService.password?.invalid && (authService.password?.dirty || authService.password?.touched)"
+      class="alert alert-danger">
+      <div *ngIf="authService.password?.errors?.['required']">
+        Please enter a password
+      </div>
+      <div *ngIf="authService.password?.errors?.['correctPassword']">
+        Your password isn't strong enough
+        <ul>
+          <li>at least 8 characters</li>
+          <li>a mixture of both uppercase and lowercase letters</li>
+          <li>a mixture of letters and numbers</li>
+          <li>inclusion of at least one special character, e.g., ! @ # ?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button
+    class="login-btn"
+    type="submit" 
+    mat-raised-button 
+    [disabled]="!authService.user.valid"
+  >Login
+  </button>
+</form>

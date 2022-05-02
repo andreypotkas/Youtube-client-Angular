@@ -1,0 +1,57 @@
+:host{
+    margin-top: 200px;
+    display:flex;
+    justify-content: center;
+    .video-container{
+        width: 729px;
+        height: 461px;
+        background-size: cover;
+    }
+    .description-container{
+        width: 436px;
+        height: 461px;
+        background: #E5E5E5;
+    }
+    .flag{
+        width: 32px;
+        height: 32px;
+        background: blue;
+        color: white;
+        font-size: 32px;
+    }
+    .card-page-img{
+        background-size: contain;
+    }
+    .description-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 35px 16px 0px 35px;
+        box-sizing: border-box;
+        .card-page-title{
+            .card-page-title-text{
+                font-size: 24px;
+            }
+            .card-page-title-date{
+                font-size: 10px;
+            }
+        }
+        .card-page-description{
+            .card-page-description-title{
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .card-page-description-text{
+                width: 365px;
+                height: 280px;
+                font-size: 12px;
+            }
+            
+        }
+        .status-card-page{
+            width: 100%;
+            height: 5px;
+        }
+    }
+
+}

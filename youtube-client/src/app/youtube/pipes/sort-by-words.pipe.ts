@@ -1,12 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IItem } from '../models/models';
-import { SortService } from '../../core/services/sort.service';
+import { IItem } from '../../core/models/models';
 
 @Pipe({
   name: 'sortByWords',
 })
 export class SortByWordsPipe implements PipeTransform {
-  constructor(public sortService: SortService) {}
+  constructor() {}
 
   transform(value: IItem[], str: string): IItem[] {
     if (str) {

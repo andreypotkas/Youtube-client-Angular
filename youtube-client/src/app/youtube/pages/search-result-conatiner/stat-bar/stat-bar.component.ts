@@ -1,29 +1,30 @@
-import { Component, Input, OnInit } from '@angular/core';
-import response from '../response';
+import {
+  ChangeDetectionStrategy, Component, Input, OnInit,
+} from '@angular/core';
+import { IItem, IStatistics } from '../../../../core/models/models';
+import { YoutubeService } from '../../../../core/services/youtube.service';
 
 @Component({
   selector: 'app-stat-bar',
   templateUrl: './stat-bar.component.html',
   styleUrls: ['./stat-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatBarComponent implements OnInit {
-    @Input() index: number = 0;
-
-    public views: string = '';
-
-    public likes: string = '';
-
-    public disLikes: string = '';
-
-    public comments: string = '';
+    @Input() stat!: IStatistics;
+    public views!: string;
+    public comments!: string;
+    public likes!: string;
+    constructor(
+      public youtubeService: YoutubeService,
+    ) {
+    }
 
     ngOnInit(): void {
-      this.views = response.items[this.index].statistics.viewCount;
-
-      this.likes = response.items[this.index].statistics.likeCount;
-
-      this.disLikes = response.items[this.index].statistics.dislikeCount;
-
-      this.comments = response.items[this.index].statistics.commentCount;
+      if (this.stat) {
+        this.views = this.stat.viewCount;
+        this.likes = this.stat.likeCount;
+        this.comments = this.stat.commentCount;
+      }
     }
 }
