@@ -12,7 +12,7 @@ Use:
 - Forms, Reactive forms, Validators, Custom validators
 - HttpClient
 - RxJs, Marbles, Observables
-- NgRx, actions, reducers, effects
+- NgRx, actions, reducers, effects, store
 - Angular Material
 
 ## Deploy
